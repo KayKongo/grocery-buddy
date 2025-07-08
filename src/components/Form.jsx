@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const Form = ({ addItem }) => {
   const [newItemName, setNewItemName] = useState("");
@@ -6,8 +7,9 @@ const Form = ({ addItem }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Check if there's no item entered into the input field...
     if (!newItemName) {
-      console.log("Empty form!");
+      toast.error(`Empty form! Please provide a value`);
       return;
     }
 
